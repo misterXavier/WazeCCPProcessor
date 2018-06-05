@@ -1,7 +1,7 @@
 CREATE SCHEMA waze;
 
 -- create the lambda role
-CREATE ROLE lambda_role LOGIN PASSWORD 'ENTER THE SAME PASSWORD YOU USED IN TERRAFORM HERE';
+CREATE ROLE lambda_role LOGIN PASSWORD 'SM2018_sepud';
 
 -- setup permissions for the lambda role
 GRANT ALL ON SCHEMA waze TO lambda_role;
