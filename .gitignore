@@ -13,3 +13,5 @@ code/lambda-functions/waze-data-process/dist/
 code/lambda-functions/waze-data-download/built/
 
 code/lambda-functions/waze-data-download/dist/
+/infrastructure/terraform/backend/config
+infrastructure/terraform/modules/globals/globals.tf
