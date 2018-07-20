@@ -1,5 +1,0 @@
-# the name of the state management bucket
-bucket = "waze-terraform-state-management-joinville"
-
-# the region where the state management bucket resides
-region = "us-east-1" 
