@@ -639,26 +639,26 @@ resource "aws_db_subnet_group" "waze_db_subnet_group" {
 
 
 # create the standard PostrgreSQL DB instance
-resource "aws_db_instance" "waze_database_default" {
-  allocated_storage       = 20
-  storage_type            = "gp2"
-  # count                 = 1 # keeping this here, set to 1, in case someone wants to easily increase it (expensive, though)
-  identifier              = "${var.object_name_prefix}-waze-postgres-instance-${count.index}"
-  # cluster_identifier    = "${aws_db_instance.waze_database_default.id}"
-  instance_class          = "db.t2.micro"  
-  # parameter_group_name  = "default.postgres.9.6"
-  vpc_security_group_ids  = ["${aws_security_group.allow_postgres_traffic.id}"]
-  db_subnet_group_name    = "${aws_db_subnet_group.waze_db_subnet_group.id}"
-  engine                  = "postgres"
-  engine_version          = "9.6.6"
-  port                    = "${var.rds_port}"
-  publicly_accessible     = true
-  name                    = "waze_data"
-  username                = "${var.rds_master_username}"
-  password                = "${var.rds_master_password}"
+# resource "aws_db_instance" "waze_database_default" {
+#   allocated_storage       = 20
+#   storage_type            = "gp2"
+#   # count                 = 1 # keeping this here, set to 1, in case someone wants to easily increase it (expensive, though)
+#   identifier              = "${var.object_name_prefix}-waze-postgres-instance-${count.index}"
+#   # cluster_identifier    = "${aws_db_instance.waze_database_default.id}"
+#   instance_class          = "db.t2.micro"  
+#   # parameter_group_name  = "default.postgres.9.6"
+#   vpc_security_group_ids  = ["${aws_security_group.allow_postgres_traffic.id}"]
+#   db_subnet_group_name    = "${aws_db_subnet_group.waze_db_subnet_group.id}"
+#   engine                  = "postgres"
+#   engine_version          = "9.6.6"
+#   port                    = "${var.rds_port}"
+#   publicly_accessible     = true
+#   name                    = "waze_data"
+#   username                = "${var.rds_master_username}"
+#   password                = "${var.rds_master_password}"
 
-  tags {
-    Name = "${var.object_name_prefix}-waze-postgres-instance-${count.index}"
-    Environment = "${var.environment}"
-  }
-}
+#   tags {
+#     Name = "${var.object_name_prefix}-waze-postgres-instance-${count.index}"
+#     Environment = "${var.environment}"
+#   }
+# }
